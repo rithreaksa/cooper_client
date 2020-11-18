@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import DisplayCooperResult from "./components/DisplayCooperResult";
+import InputFields from "./components/InputFields";
 
 class App extends Component {
   state = {
     distance: "",
-    gender: "",
+    gender: "female",
     age: ""
   };
 
@@ -15,21 +16,8 @@ class App extends Component {
   render() {
     return (
       <>
-        <label>Distance</label>
-        <input 
-         onChange={this.onChangeHandler}
-         name="distance"
-         id="distance"
-         ></input>
-
-        <select onChange={this.onChangeHandler} name="gender" id="gender">
-          <option value="female">Female</option>
-          <option value="male">Male</option>
-        </select>
-
-        <label>Age</label>
-        <input onChange={this.onChangeHandler} name="age" id="age"></input>
-        <DisplayCooperResult
+      <InputFields onChangeHandler={this.onChangeHandler} />
+      <DisplayCooperResult
           distance={this.state.distance}
           gender={this.state.gender}
           age={this.state.age}
