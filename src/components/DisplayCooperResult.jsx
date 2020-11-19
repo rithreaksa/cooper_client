@@ -1,7 +1,7 @@
 import React from "react";
 
 import cooperCalculator from "../modules/cooperCalculator";
-import saveData from "../modules/performanceData"
+import { saveData } from "../modules/performanceData"
 
 const DisplayCooperResult = ({ 
   distance, 
@@ -22,7 +22,7 @@ const DisplayCooperResult = ({
         <p id="cooper-message">
           {age} y/o {gender} running {distance} meters.
         </p>
-        <p id="cooper-result">Result: {result()}</p>
+        <p id="cooper-result">Result: {result}</p>
         {authenticated && !entrySaved ? (
           <button
             id="save-result"
