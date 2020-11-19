@@ -29,7 +29,7 @@ const DisplayCooperResult = ({
             onClick={() => saveData(result, entryHandler)}
           >Save entry</button>
         ) : (
-          <p id="response.message">Your entry was saved</p>
+          <p id="response-message">Your entry was saved</p>
         )}
       </>
       )}
