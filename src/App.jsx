@@ -1,10 +1,11 @@
+/* eslint-disable default-case */
 /* eslint-disable no-undef */
 import React, { Component } from "react";
 
 import DisplayCooperResult from "./components/DisplayCooperResult";
 import InputFields from "./components/InputFields";
 import LoginForm from "./components/LoginForm";
-import { authenticate } from './modules/auth'
+import { authenticate } from "./modules/auth";
 
 class App extends Component {
   state = {
@@ -13,14 +14,14 @@ class App extends Component {
     age: "",
     renderLoginForm: false,
     authenticated: false,
-    message: ""
+    message: "",
   };
 
   onChangeHandler = (e) => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  onLogin = async e => {
+  onLogin = async (e) => {
     e.preventDefault();
     const response = await authenticate(
       e.target.email.value,
@@ -29,14 +30,13 @@ class App extends Component {
     if (response.authenticated) {
       this.setState({ authenticated: true });
     } else {
-      this.setState({ message: response.message, renderLoginForm: false })
+      this.setState({ message: response.message, renderLoginForm: false });
     }
-  }
+  };
 
   render() {
-
     const { renderLoginForm, authenticated, message } = this.state;
-    let renderLogin
+    let renderLogin;
     switch (true) {
       case renderLoginForm && !authenticated:
         renderLogin = <LoginForm submitFormHandler={this.onLogin} />;
@@ -45,17 +45,19 @@ class App extends Component {
         renderLogin = (
           <>
             <button
-            id="login"
-            onClick={() => this.setState({ renderLoginForm: true })}
-          >Login</button>
-            <p>{message}</p>
+              id="login"
+              onClick={() => this.setState({ renderLoginForm: true })}
+            >
+              Login
+            </button>
+            <p id="message">{message}</p>
           </>
-        )
+        );
         break;
       case authenticated:
         renderLogin = (
-        <p>Hi {JSON.parse(sessionStorage.getItem("credentials")).uid }</p>
-        )
+          <p id="message">Hi {JSON.parse(sessionStorage.getItem("credentials")).uid}</p>
+        );
         break;
     }
 
