@@ -10,17 +10,17 @@ describe("User authenticates", () => {
   it("successfully with valid credentials", () => {
     cy.get("#login").click();
     cy.get("#login-form").within(() => {
-      cy.get("#email").type("user@mail.com");
+      cy.get("#email").type("user@example.com");
       cy.get("#password").type("password");
       cy.get("button").contains("Submit").click();
     });
-    cy.get("#message").should("contain", "Hi user@mail.com");
+    cy.get("#message").should("contain", "Hi user@example.com");
   });
 
   it("unsuccessfully with invalid credentials", () => {
     cy.get("#login").click();
     cy.get("#login-form").within(() => {
-      cy.get("#email").type("user@gmail.com");
+      cy.get("#email").type("user@example.com");
       cy.get("#password").type("wrongpassword");
       cy.get('button').contains('Submit').click()
     });

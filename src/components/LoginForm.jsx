@@ -10,6 +10,7 @@ const LoginForm = ({ submitFormHandler }) => {
       <input name="password" type="password" id="password"></input>
 
       <button id="submit">Submit</button>
+      <input name="message" type="message" id="message"></input>
     </form>
   );
 };
