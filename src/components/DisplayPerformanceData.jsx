@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { getData } from "../modules/performanceData";
-import { Doughnut } from 'react-chartjs-2'
+import { Line } from 'react-chartjs-2'
 
 class DisplayPerformanceData extends Component {
     state = {
@@ -50,7 +50,7 @@ class DisplayPerformanceData extends Component {
             datasets: [{ label: "previous results", data: distances }]
         }
 
-        doughnut = <Doughnut data={data} />
+        doughnut = <Line data={data} />
 
         return <div id="index">{doughnut}</div>
     }
