@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { getData, saveData } from "../modules/performanceData";
+import { getData } from "../modules/performanceData";
 
 class DisplayPerformanceData extends Component {
     state = {
@@ -11,13 +11,13 @@ class DisplayPerformanceData extends Component {
     }
 
     componentDidUpdate(prevProps) {
-        if (this.props.updateIndex != prevProps.updateIndex) {
+        if (this.props.updateIndex !== prevProps.updateIndex) {
             this.getPerformanceData()
         }
     }
 
     async getPerformanceData() {
-        let result = await this.getPerformanceData();
+        let result = await getData();
         this.setState({performanceData: result.data.entries}, () => {
             this.props.indexUpdated();
         })
@@ -26,9 +26,9 @@ class DisplayPerformanceData extends Component {
     render () {
         let dataIndex;
 
-        if (this.state.performanceData != null) {
+        if (this.state.performanceData !== null) {
             dataIndex = (
-                <div>
+                <div id='index'>
                     {this.state.performanceData.map(item => {
                         return <div key={item.id}>{item.data.message}</div>
                     })}

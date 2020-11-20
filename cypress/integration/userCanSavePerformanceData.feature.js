@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 /// <reference types="Cypress" />
 
-describe("User attempts save data", () => {
+describe("User attempts to save data", () => {
   beforeEach(() => {
     cy.server();
     cy.route({
