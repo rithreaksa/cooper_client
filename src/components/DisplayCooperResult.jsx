@@ -9,7 +9,7 @@ const DisplayCooperResult = ({
   age,
   authenticated,
   entrySaved,
-  entryHandler 
+  entryHandler, 
 }) => {
   const result = cooperCalculator(distance, gender, age);
 

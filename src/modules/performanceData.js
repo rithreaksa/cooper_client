@@ -11,9 +11,11 @@ const saveData = async (result, age, distance, entryHandler) => {
     try {
         await axios.post("/performance_data",
         {
-            performance_data: { data: { message: result, age: age, distance: distance } }
+            performance_data: { 
+                data: { message: result, age: age, distance: distance },
+            },
         }, {
-            headers: headers
+            headers: headers,
         })
         entryHandler();        
     } catch (err) {

@@ -29,8 +29,7 @@ class DisplayPerformanceData extends Component {
         let distances = []
         let labels = []
 
-        if (this.state.performanceData !== null) {
-            dataIndex = (
+        if (this.state.performanceData != null) {
                 this.state.performanceData.forEach((entry) => {
                     distances.push(entry.data.distance)
                     labels.push(entry.data.message)
@@ -44,7 +43,6 @@ class DisplayPerformanceData extends Component {
                 //             </div>)
                 //     })}
                 // </div>
-            );
         }
 
         const data = {
@@ -54,11 +52,7 @@ class DisplayPerformanceData extends Component {
 
         doughnut = <Doughnut data={data} />
 
-        return (
-            <div>
-                {dataIndex}
-            </div>
-        )
+        return <div id="index">{doughnut}</div>
     }
 }
 
