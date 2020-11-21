@@ -1,6 +1,27 @@
 import axios from "axios";
 
-const authenticate = async (email, password) => {
+const authenticateWithSignUp = async (
+  email,
+  password,
+  passwordConfirmation
+) => {
+  try {
+    const response = await axios.post("/auth", {
+      email,
+      password,
+      password_confirmation: passwordConfirmation,
+    });
+    await storeAuthCredentials(response);
+    return { authenticated: true };
+  } catch (error) {
+    return {
+      authenticated: false,
+      message: JSON.stringify(error.response.data.errors[0]),
+    };
+  }
+};
+
+const authenticateWithSignIn = async (email, password) => {
   try {
     const response = await axios.post("/auth/sign_in", {
       email: email,
@@ -24,5 +45,4 @@ const storeAuthCredentials = ({ headers }) => {
   sessionStorage.setItem("credentials", JSON.stringify(credentials));
 };
 
-export { authenticate };
-//export default storeAuthCredentials
+export { authenticateWithSignUp, authenticateWithSignIn };

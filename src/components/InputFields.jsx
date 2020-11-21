@@ -9,6 +9,7 @@ const InputFields = ({ onChangeHandler }) => {
       <select onChange={onChangeHandler} name="gender" id="gender">
         <option value="female">Female</option>
         <option value="male">Male</option>
+        <option value="other">Other</option>
       </select>
 
       <label>Age</label>
