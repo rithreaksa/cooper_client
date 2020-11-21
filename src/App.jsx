@@ -8,6 +8,10 @@ import LoginForm from "./components/LoginForm";
 import { authenticateWithSignIn, authenticateWithSignUp } from "./modules/auth";
 import DisplayPerformanceData from "./components/DisplayPerformanceData";
 import SignUpForm from "./components/SignUpForm";
+import Header from "./components/Header"
+import About from "./components/About"
+import CooperTest from "./components/cooperTest"
+import { Switch, Route } from 'react-router-dom'
 
 class App extends Component {
   state = {
@@ -133,6 +137,12 @@ class App extends Component {
   renderAuthenticatedPage() {
     return (
       <>
+        <Header />
+        <Switch>
+          {/* <Route exact path="/" component={Home}></Route> */}
+          <Route exact path="/about" component={About}></Route>
+          <Route exact path="/cooperTest" component={CooperTest}></Route>
+        </Switch>
         <p id="message">
           Hi {JSON.parse(sessionStorage.getItem("credentials")).uid}
         </p>

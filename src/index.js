@@ -3,6 +3,9 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import axios from "axios";
+import "semantic-ui-css/semantic.min.css";
+import { BrowserRouter } from "react-router-dom"
+
 
 let apiUrl;
 if (process.env.NODE_ENV === "production") {
@@ -12,7 +15,11 @@ if (process.env.NODE_ENV === "production") {
 }
 axios.defaults.baseURL = apiUrl;
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>, 
+document.getElementById("root"));
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

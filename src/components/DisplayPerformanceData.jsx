@@ -81,7 +81,7 @@ class DisplayPerformanceData extends Component {
                     animateScale: true
                 }
             }
-        },
+        }
 
         doughnut = <Doughnut data={data} />
 
