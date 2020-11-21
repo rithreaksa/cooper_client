@@ -63,10 +63,22 @@ class DisplayPerformanceData extends Component {
 
         const data = {
             labels: labels, 
-            datasets: [{ label: "previous results", data: distances }]
+            datasets: [
+                {
+                    label: "previous results", 
+                    data: distances,
+                    backgroundColor:[
+                        'rgba(205, 92, 92)',
+                        'rgba(240, 128, 128)',
+                        'rgba(250, 128, 114)',
+                        'rgba(233, 150, 122)',
+                        'rgba(255, 160, 122)'
+                    ]
+                 
+                }],
         }
 
-        doughnut = <Doughnut className="DoughnutChart" data={data} />
+        doughnut = <Doughnut className="DoughnutChart" data={data}/>
 
         return <div id="index" >{doughnut}</div>
     }
