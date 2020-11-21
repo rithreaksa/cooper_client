@@ -5,7 +5,7 @@ import React, { Component } from "react";
 import DisplayCooperResult from "./components/DisplayCooperResult";
 import InputFields from "./components/InputFields";
 import LoginForm from "./components/LoginForm";
-import { authenticate } from "./modules/auth";
+import { authenticateWithSignIn } from "./modules/auth";
 import DisplayPerformanceData from "./components/DisplayPerformanceData";
 
 class App extends Component {
@@ -19,15 +19,15 @@ class App extends Component {
     entrySaved: false,
   };
 
-  onChangeHandler = (e) => {
-    this.setState({ [e.target.name]: e.target.value, entrySaved: false });
+  onChangeHandler = (event) => {
+    this.setState({ [event.target.name]: event.target.value, entrySaved: false });
   };
 
-  onLogin = async (e) => {
-    e.preventDefault();
-    const response = await authenticate(
-      e.target.email.value,
-      e.target.password.value
+  onLogin = async (event) => {
+    event.preventDefault();
+    const response = await authenticateWithSignIn(
+      event.target.email.value,
+      event.target.password.value
     );
     if (response.authenticated) {
       this.setState({ authenticated: true });
@@ -83,7 +83,8 @@ class App extends Component {
             >
               Show past entries
             </button>
-          ); break;
+          );
+          break;
         }
     }
 

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const authenticate = async (email, password) => {
+const authenticateWithSignIn = async (email, password) => {
   try {
     const response = await axios.post("/auth/sign_in", {
       email: email,
@@ -24,5 +24,4 @@ const storeAuthCredentials = ({ headers }) => {
   sessionStorage.setItem("credentials", JSON.stringify(credentials));
 };
 
-export { authenticate };
-//export default storeAuthCredentials
+export { authenticateWithSignIn };
