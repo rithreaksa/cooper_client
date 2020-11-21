@@ -106,10 +106,9 @@ class App extends Component {
     );
   }
 
-  renderAuthenticatedPage() {
-    let performanceDataIndex;
+  renderPerformanceDataIndex() {
     if (this.state.renderIndex) {
-      performanceDataIndex = (
+      return (
         <>
           <DisplayPerformanceData
             updateIndex={this.state.updateIndex}
@@ -120,16 +119,18 @@ class App extends Component {
           </button>
         </>
       );
-    } else {
-      performanceDataIndex = (
-        <button
-          id="show-index"
-          onClick={() => this.setState({ renderIndex: true })}
-        >
-          Show past entries
-        </button>
-      );
     }
+    return (
+      <button
+        id="show-index"
+        onClick={() => this.setState({ renderIndex: true })}
+      >
+        Show past entries
+      </button>
+    );
+  }
+
+  renderAuthenticatedPage() {
     return (
       <>
         <p id="message">
@@ -146,7 +147,7 @@ class App extends Component {
             this.setState({ entrySaved: true, updateIndex: true })
           }
         />
-        <div>{performanceDataIndex}</div>
+        <div>{this.renderPerformanceDataIndex()}</div>
       </>
     );
   }
@@ -180,17 +181,15 @@ class App extends Component {
   }
 
   render() {
-    const { renderSignUpForm, renderLoginForm, authenticated } = this.state;
-
-    if (authenticated) {
+    if (this.state.authenticated) {
       return this.renderAuthenticatedPage();
     }
 
-    if (renderLoginForm) {
+    if (this.state.renderLoginForm) {
       return this.renderLoginPage();
     }
 
-    if (renderSignUpForm) {
+    if (this.state.renderSignUpForm) {
       return this.renderSignUpPage();
     }
 
