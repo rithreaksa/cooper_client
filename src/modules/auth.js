@@ -1,18 +1,25 @@
 import axios from "axios";
 
-const authenticateWithSignUp = async (email, password, passwordConfirmation) => {
+const authenticateWithSignUp = async (
+  email,
+  password,
+  passwordConfirmation
+) => {
   try {
     const response = await axios.post("/auth", {
       email,
       password,
       password_confirmation: passwordConfirmation,
-    })
+    });
     await storeAuthCredentials(response);
     return { authenticated: true };
   } catch (error) {
-    return { authenticated: false, message: error.response.data.errors[0] };
+    return {
+      authenticated: false,
+      message: JSON.stringify(error.response.data.errors[0]),
+    };
   }
-}
+};
 
 const authenticateWithSignIn = async (email, password) => {
   try {

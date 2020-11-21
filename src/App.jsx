@@ -5,7 +5,7 @@ import React, { Component } from "react";
 import DisplayCooperResult from "./components/DisplayCooperResult";
 import InputFields from "./components/InputFields";
 import LoginForm from "./components/LoginForm";
-import { authenticateWithSignIn } from "./modules/auth";
+import { authenticateWithSignIn, authenticateWithSignUp } from "./modules/auth";
 import DisplayPerformanceData from "./components/DisplayPerformanceData";
 import SignUpForm from "./components/SignUpForm";
 
@@ -37,12 +37,34 @@ class App extends Component {
     if (response.authenticated) {
       this.setState({ authenticated: true });
     } else {
-      this.setState({ message: response.message, renderLoginForm: false });
+      this.setState({
+        message: response.message,
+        renderLoginForm: false,
+        renderSignUpForm: false,
+      });
+    }
+  };
+
+  onSignUp = async (event) => {
+    event.preventDefault();
+    const response = await authenticateWithSignUp(
+      event.target.email.value,
+      event.target.password.value,
+      event.target.password_confirmation.value
+    );
+    if (response.authenticated) {
+      this.setState({ authenticated: true });
+    } else {
+      this.setState({
+        message: response.message,
+        renderLoginForm: false,
+        renderSignUpForm: false,
+      });
     }
   };
 
   signUpForm() {
-    return <SignUpForm submitFormHandler={this.onLogin} />;
+    return <SignUpForm submitFormHandler={this.onSignUp} />;
   }
 
   signUpButton() {
