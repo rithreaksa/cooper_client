@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import axios from "axios";
+import 'semantic-ui-css/semantic.min.css'
 
 let apiUrl;
 if (process.env.NODE_ENV === "production") {
