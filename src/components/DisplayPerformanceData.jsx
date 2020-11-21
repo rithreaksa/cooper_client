@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { getData } from "../modules/performanceData";
-import { Line } from 'react-chartjs-2'
+import { Doughnut } from 'react-chartjs-2'
 
 class DisplayPerformanceData extends Component {
     state = {
@@ -23,6 +23,22 @@ class DisplayPerformanceData extends Component {
             this.props.indexUpdated();
         })
     }
+
+    // const getState = () ({
+    //     labels: = () ({
+    //         'Red',
+    //         'Green',
+    //         'Yellow'
+    //     })
+    // })
+
+    // export default React.createClass({
+    //     displayName: 'CooperRecordsResult',
+
+    //     render() {
+    //         return (<div id="index">{doughnut}</div>)
+    //     }
+    // })
 
     render () {
         let doughnut;
@@ -50,9 +66,9 @@ class DisplayPerformanceData extends Component {
             datasets: [{ label: "previous results", data: distances }]
         }
 
-        doughnut = <Line data={data} />
+        doughnut = <Doughnut className="DoughnutChart" data={data} />
 
-        return <div id="index">{doughnut}</div>
+        return <div id="index" >{doughnut}</div>
     }
 }
 
