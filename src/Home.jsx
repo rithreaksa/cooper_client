@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Container, Message, Button, Divider } from "semantic-ui-react";
+import { Container, Grid, Message, Button, Divider } from "semantic-ui-react";
 import DisplayCooperResult from "./components/DisplayCooperResult";
 import InputFields from "./components/InputFields";
 import LoginForm from "./components/LoginForm";
@@ -100,14 +100,15 @@ class Home extends Component {
 
   backButton() {
     return (
-      <button
+      <Button
+        basic
         id="back"
         onClick={() =>
           this.setState({ renderSignUpForm: false, renderLoginForm: false })
         }
       >
         Back
-      </button>
+      </Button>
     );
   }
 
@@ -182,10 +183,12 @@ class Home extends Component {
 
   renderSignUpPage() {
     return (
-      <>
-        {this.signUpForm()}
-        {this.backButton()}
-      </>
+      <Container>
+        <Grid segment centered>
+          <Grid.Row>{this.signUpForm()}</Grid.Row>
+          <Grid.Row>{this.backButton()}</Grid.Row>
+        </Grid>
+      </Container>
     );
   }
 

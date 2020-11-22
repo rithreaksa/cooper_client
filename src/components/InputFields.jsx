@@ -40,16 +40,3 @@ const InputFields = ({ onChangeHandler, onGenderChangeHandler }) => {
 };
 
 export default InputFields;
-
-// {/* <Form.Select
-// fluid
-// options={[
-//   { key: "f", text: "Female", value: "female" },
-//   { key: "m", text: "Male", value: "male" },
-//   { key: "o", text: "Other", value: "other" },
-// ]}
-// placeholder="Gender"
-// onChange={onGenderChangeHandler}
-// name="gender"
-// id="gender"
-// /> */}
