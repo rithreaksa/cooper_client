@@ -11,7 +11,6 @@ When you have both the frontend and the backend you need to start them both. Wit
 - [Semantic-UI-React, event.target.value](https://github.com/Semantic-Org/Semantic-UI-React/issues/638)
 - [How to get the value from an event target js](https://stackoverflow.com/questions/38348258/how-to-get-the-value-from-an-event-target-in-js)
 - [Semantic UI React centred from in Segment](https://stackoverflow.com/questions/45111701/semantic-ui-react-center-form-in-segment)
-- 
 
 ## Dependencies
 
@@ -35,3 +34,4 @@ We recommend installing all software you see beneath. They are not only valuable
 * Add a "Remember Me" option so the user don't need to sign in every time they change or refresh page 
 * BMI calculator
 * The ability to send the performance data to, for example, an Email.
+* Fix bug. When you refresh background color switches to white 

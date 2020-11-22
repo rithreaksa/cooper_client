@@ -6,7 +6,7 @@ const Header = () => {
   return (
     <Segment inverted>
       <Menu inverted secondary>
-        <Image src={'nedladdning (1).png'} size={'tiny'}
+        <Menu.Item
           id="Home"
           name="Home Page"
           as={Link}
@@ -24,6 +24,7 @@ const Header = () => {
           as={NavLink}
           to={{ pathname: "/about" }}
         />
+        <Image src={'nedladdning (1).png'} size={'tiny'}/>
       </Menu>
     </Segment>
   );

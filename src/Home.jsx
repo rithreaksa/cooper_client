@@ -20,6 +20,10 @@ class Home extends Component {
     entrySaved: false,
   };
 
+  componentDidMount() {
+    document.body.style.backgroundColor = "#FFC0CB"
+  }
+
   onChangeHandler = (event) => {
     this.setState({
       [event.target.name]: event.target.value,
@@ -75,12 +79,18 @@ class Home extends Component {
 
   signUpButton() {
     return (
-      <button
+      <Container>
+        <Grid segment centered padded>
+      <Button
+        size='massive'
+        color='pink'
         id="sign-up"
         onClick={() => this.setState({ renderSignUpForm: true })}
       >
         Sign Up
-      </button>
+      </Button>
+        </Grid>
+      </Container>
     );
   }
 
@@ -90,12 +100,18 @@ class Home extends Component {
 
   loginButton() {
     return (
-      <button
-        id="login"
-        onClick={() => this.setState({ renderLoginForm: true })}
+      <Container>
+      <Grid segment centered padded>
+    <Button
+      size='massive'
+      color='pink'
+      id="login"
+      onClick={() => this.setState({ renderLoginForm: true })}
       >
         Login
-      </button>
+      </Button>
+      </Grid>
+      </Container>
     );
   }
 

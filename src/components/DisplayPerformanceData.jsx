@@ -43,11 +43,11 @@ class DisplayPerformanceData extends Component {
         {
           data: Object.values(doughnutData),
           backgroundColor: [
-            "rgba(246, 22, 97)",
+            "rgba(102, 209, 113)",
             "rgba(192, 30, 170)",
             "rgba(70, 82, 196)",
             "rgba(32, 189, 213)",
-            "rgba(102, 209, 113)",
+            "rgba(246, 22, 97)"
           ],
         },
       ],
