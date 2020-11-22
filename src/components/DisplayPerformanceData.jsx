@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { getData } from "../modules/performanceData";
 import { Doughnut } from "react-chartjs-2";
+import { Message } from "semantic-ui-react";
 
 class DisplayPerformanceData extends Component {
   state = {
@@ -25,37 +26,54 @@ class DisplayPerformanceData extends Component {
   }
 
   render() {
-    const doughnutData = {};
+    if (this.state.performanceData == null) {
+      return (
+        <Message info>
+          <p>No performance data</p>
+        </Message>
+      );
+    }
 
-    if (this.state.performanceData != null) {
-      this.state.performanceData.forEach((entry) => {
-        let label = entry.data.message;
+    // prettier-ignore
+    const doughnutData = {
+      'Excellent': 0,
+      'Above average': 0,
+      'Average': 0,
+      'Below average': 0,
+      'Poor': 0
+    };
+
+    const colors = [
+      "#43aa8b",
+      "#90be6d",
+      "#f9c74f",
+      "#f8961e",
+      "#f94144",
+    ]
+
+      this.state.performanceData.forEach((each) => {
+        let label = each.data.message;
         if (doughnutData[label] == null) {
           doughnutData[label] = 0;
         }
         doughnutData[label] += 1;
       });
-    }
 
     const data = {
       labels: Object.keys(doughnutData),
       datasets: [
         {
           data: Object.values(doughnutData),
-          backgroundColor: [
-            "rgba(102, 209, 113)",
-            "rgba(192, 30, 170)",
-            "rgba(70, 82, 196)",
-            "rgba(32, 189, 213)",
-            "rgba(246, 22, 97)"
-          ],
+          backgroundColor: colors,
         },
       ],
     };
 
-    let doughnut = <Doughnut data={data} />;
-
-    return <div id="index">{doughnut}</div>;
+    return (
+      <div id="index">
+        <Doughnut data={data} />
+      </div>
+    );
   }
 }
 
