@@ -174,10 +174,12 @@ class Home extends Component {
 
   renderLoginPage() {
     return (
-      <>
-        {this.loginForm()}
-        {this.backButton()}
-      </>
+      <Container>
+        <Grid segment centered>
+          <Grid.Row>{this.loginForm()}</Grid.Row>
+          <Grid.Row>{this.backButton()}</Grid.Row>
+        </Grid>
+      </Container>
     );
   }
 

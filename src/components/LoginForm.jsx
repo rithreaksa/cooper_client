@@ -1,16 +1,27 @@
 import React from "react";
+import { Card, Form, Button } from "semantic-ui-react";
 
 const LoginForm = ({ submitFormHandler }) => {
   return (
-    <form onSubmit={submitFormHandler} id="login-form">
-      <label>Email</label>
-      <input name="email" type="email" id="email"></input>
-
-      <label>Password</label>
-      <input name="password" type="password" id="password"></input>
-
-      <button id="submit">Submit</button>
-    </form>
+    <Card color="blue">
+      <Card.Content extra>
+        <Form onSubmit={submitFormHandler} id="login-form">
+          <Form.Input
+            name="email"
+            type="email"
+            id="email"
+            placeholder="Email"
+          />
+          <Form.Input
+            name="password"
+            type="password"
+            id="password"
+            placeholder="Password"
+          />
+          <Button id="submit">Submit</Button>
+        </Form>
+      </Card.Content>
+    </Card>
   );
 };
 
