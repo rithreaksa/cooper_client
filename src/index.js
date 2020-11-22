@@ -5,6 +5,7 @@ import reportWebVitals from "./reportWebVitals";
 import axios from "axios";
 import "semantic-ui-css/semantic.min.css";
 import { BrowserRouter } from "react-router-dom";
+import "./index.css"
 
 let apiUrl;
 if (process.env.NODE_ENV === "production") {

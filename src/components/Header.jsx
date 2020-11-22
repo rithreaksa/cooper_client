@@ -1,12 +1,12 @@
 import React from "react";
-import { Menu, Segment } from "semantic-ui-react";
+import { Menu, Segment, Image } from "semantic-ui-react";
 import { NavLink, Link } from "react-router-dom";
 
 const Header = () => {
   return (
     <Segment inverted>
       <Menu inverted secondary>
-        <Menu.Item
+        <Image src={'nedladdning (1).png'} size={'tiny'}
           id="Home"
           name="Home Page"
           as={Link}

@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import About from "./components/About";
 import CooperTest from "./components/cooperTest";
 import { Switch, Route } from "react-router-dom";
+//import Footer from "./Footer"
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
         <Route exact path="/about" component={About}></Route>
         <Route exact path="/cooperTest" component={CooperTest}></Route>
       </Switch>
+      {/* <Footer /> */}
     </>
   );
 };

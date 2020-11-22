@@ -1,5 +1,6 @@
 import React from "react";
 import { Container } from "semantic-ui-react";
+import "../index.css"
 
 const CooperTest = () => {
   return (
@@ -45,7 +46,7 @@ const CooperTest = () => {
           Speed: When you are warmed up, get going. Run or walk as far as you
           can in 12 minutes.
         </li>
-        <li class="item">
+        <li class="item" className="infoText">
           Warm-Up: Perform a short warm-up of 10 to 15 minutes of low to
           moderately strenuous activity before performing any fitness testing.
         </li>

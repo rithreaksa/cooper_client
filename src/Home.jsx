@@ -6,6 +6,7 @@ import LoginForm from "./components/LoginForm";
 import { authenticateWithSignIn, authenticateWithSignUp } from "./modules/auth";
 import DisplayPerformanceData from "./components/DisplayPerformanceData";
 import SignUpForm from "./components/SignUpForm";
+import "./index.css"
 
 class Home extends Component {
   state = {
