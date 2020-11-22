@@ -6,6 +6,7 @@ const CooperTest = () => {
         <Container>
             <h1>What is the Cooper Test</h1>
             <h3>The Cooper test is a test of physical fitness. It was designed by Kenneth H. Cooper in 1968 for US military use</h3>
+            <img src="/public/Dr K Cooper Headshot_CBC.jpg" alt="Dr Cooper"/>
             <p>
                 The Cooper 12-minute run test requires the person being tested to run or walk as far as possible in a 12 minute period. 
                 The objective of the test is to measure the maximum distance covered by the individual during the 12-minute period and 
@@ -26,3 +27,4 @@ const CooperTest = () => {
 };
 
 export default CooperTest
+

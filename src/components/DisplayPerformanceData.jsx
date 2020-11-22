@@ -24,41 +24,16 @@ class DisplayPerformanceData extends Component {
         })
     }
 
-    // const getState = () ({
-    //     labels: = () ({
-    //         'Red',
-    //         'Green',
-    //         'Yellow'
-    //     })
-    // })
-
-    // export default React.createClass({
-    //     displayName: 'CooperRecordsResult',
-
-    //     render() {
-    //         return (<div id="index">{doughnut}</div>)
-    //     }
-    // })
-
     render () {
         let doughnut;
         let distances = []
         let labels = []
 
         if (this.state.performanceData != null) {
-                this.state.performanceData.forEach((entry) => {
-                    distances.push(entry.data.distance)
-                    labels.push(entry.data.message)
-                })
-                // <div id='index'>
-                //     {this.state.performanceData.map(item => {
-                //         return (<div key={item.id}>
-                //             <p>{item.data.message}</p>
-                //             <p>{item.data.age}</p>
-                //             <p>{item.data.distance}</p>
-                //             </div>)
-                //     })}
-                // </div>
+            this.state.performanceData.forEach((entry) => {
+                distances.push(entry.data.distance)
+                labels.push(entry.data.message)
+            })
         }
 
         const data = {
