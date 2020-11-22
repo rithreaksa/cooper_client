@@ -24,49 +24,24 @@ class DisplayPerformanceData extends Component {
         })
     }
 
-    // const getState = () ({
-    //     labels: = () ({
-    //         'Red',
-    //         'Green',
-    //         'Yellow'
-    //     })
-    // })
-
-    // export default React.createClass({
-    //     displayName: 'CooperRecordsResult',
-
-    //     render() {
-    //         return (<div id="index">{doughnut}</div>)
-    //     }
-    // })
-
     render () {
-        let doughnut;
-        let distances = []
-        let labels = []
+        const doughnutData = {}
 
         if (this.state.performanceData != null) {
-                this.state.performanceData.forEach((entry) => {
-                    distances.push(entry.data.distance)
-                    labels.push(entry.data.message)
-                })
-                // <div id='index'>
-                //     {this.state.performanceData.map(item => {
-                //         return (<div key={item.id}>
-                //             <p>{item.data.message}</p>
-                //             <p>{item.data.age}</p>
-                //             <p>{item.data.distance}</p>
-                //             </div>)
-                //     })}
-                // </div>
+            this.state.performanceData.forEach((entry) => {
+                let label = entry.data.message
+                if (doughnutData[label] == null) {
+                    doughnutData[label] = 0;
+                }
+                doughnutData[label] += 1;
+            })
         }
 
         const data = {
-            labels: labels, 
+            labels: Object.keys(doughnutData), 
             datasets: [
             {
-                label: "previous results", 
-                data: distances,
+                data: Object.values(doughnutData), 
                 backgroundColor:[
                     'rgba(205, 92, 92)',
                     'rgba(240, 128, 128)',
@@ -76,14 +51,9 @@ class DisplayPerformanceData extends Component {
                 ]
                  
             }],
-            options: {
-                animation: {
-                    animateScale: true
-                }
-            }
-        },
+        }
 
-        doughnut = <Doughnut data={data} />
+        let doughnut = <Doughnut data={data} />
 
         return <div id="index">{doughnut}</div>
     }
