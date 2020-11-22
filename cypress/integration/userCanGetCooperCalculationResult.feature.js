@@ -23,7 +23,7 @@ describe("Cooper Client calculates successfully", () => {
 
   it("calculates cooper performance", () => {
     cy.get("input#distance").type("1000");
-    cy.get("select#gender").select("female");
+    cy.get("div#gender").click().type("{enter}");
     cy.get("input#age").type("23");
     cy.get("p#cooper-message").should(
       "contain",

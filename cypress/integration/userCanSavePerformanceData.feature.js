@@ -34,7 +34,7 @@ describe("User attempts to save data", () => {
 
   it("successfully", () => {
     cy.get("input#distance").type("1000");
-    cy.get("select#gender").select("female");
+    cy.get("div#gender").click().type("{enter}");
     cy.get("input#age").type("23");
     cy.get("#save-result").click();
     cy.get("#response-message").should("contain", "Your entry was saved");
@@ -42,7 +42,7 @@ describe("User attempts to save data", () => {
 
   it("can save two different entries", () => {
     cy.get("input#distance").type("1000");
-    cy.get("select#gender").select("female");
+    cy.get("div#gender").click().type("{enter}");
     cy.get("input#age").type("23");
     cy.get("#save-result").click();
     cy.get("#response-message").should("contain", "Your entry was saved");

@@ -1,7 +1,5 @@
-/* eslint-disable default-case */
-/* eslint-disable no-undef */
 import React, { Component } from "react";
-
+import { Container, Message, Button, Divider } from "semantic-ui-react";
 import DisplayCooperResult from "./components/DisplayCooperResult";
 import InputFields from "./components/InputFields";
 import LoginForm from "./components/LoginForm";
@@ -24,6 +22,13 @@ class Home extends Component {
   onChangeHandler = (event) => {
     this.setState({
       [event.target.name]: event.target.value,
+      entrySaved: false,
+    });
+  };
+
+  onGenderChangeHandler = (event, data) => {
+    this.setState({
+      [data.name]: data.value,
       entrySaved: false,
     });
   };
@@ -114,29 +119,40 @@ class Home extends Component {
             updateIndex={this.state.updateIndex}
             indexUpdated={() => this.setState({ updateIndex: false })}
           />
-          <button onClick={() => this.setState({ renderIndex: false })}>
+          <Button
+            color="grey"
+            onClick={() => this.setState({ renderIndex: false })}
+          >
             Hide past entries
-          </button>
+          </Button>
         </>
       );
     }
     return (
-      <button
+      <Button
+        color="grey"
         id="show-index"
         onClick={() => this.setState({ renderIndex: true })}
       >
         Show past entries
-      </button>
+      </Button>
     );
   }
 
   renderAuthenticatedPage() {
     return (
-      <>
-        <p id="message">
-          Hi {JSON.parse(sessionStorage.getItem("credentials")).uid}
-        </p>
-        <InputFields onChangeHandler={this.onChangeHandler} />
+      <Container>
+        <Message positive>
+          <p id="message">
+            Hi {JSON.parse(sessionStorage.getItem("credentials")).uid}
+          </p>
+        </Message>
+
+        <InputFields
+          onChangeHandler={this.onChangeHandler}
+          onGenderChangeHandler={this.onGenderChangeHandler}
+        />
+
         <DisplayCooperResult
           distance={this.state.distance}
           gender={this.state.gender}
@@ -147,8 +163,11 @@ class Home extends Component {
             this.setState({ entrySaved: true, updateIndex: true })
           }
         />
+
+        <Divider />
+
         <div>{this.renderPerformanceDataIndex()}</div>
-      </>
+      </Container>
     );
   }
 
