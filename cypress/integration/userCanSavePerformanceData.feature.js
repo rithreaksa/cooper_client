@@ -9,7 +9,7 @@ describe("User attempts to save data", () => {
       url: "http://localhost:3000/api/v1/auth/sign_in",
       response: "fixture:login.json",
       headers: {
-        uid: "hej@gmail.com"
+        uid: "hej@gmail.com",
       },
     });
     cy.route({
@@ -17,16 +17,16 @@ describe("User attempts to save data", () => {
       url: "http://localhost:3000/api/v1/performance_data",
       response: {},
       headers: {
-        uid: "hej@gmail.com"
-      }
-    })
+        uid: "hej@gmail.com",
+      },
+    });
     cy.visit("/");
 
     cy.get("#login").click();
     cy.get("#login-form").within(() => {
       cy.get("#email").type("hej@gmail.com");
       cy.get("#password").type("password");
-      cy.get('button').contains("Submit").click()
+      cy.get("button").contains("Submit").click();
     });
   });
 
@@ -46,9 +46,7 @@ describe("User attempts to save data", () => {
     cy.get("input#age").type("23");
     cy.get("#save-result").click();
     cy.get("#response-message").should("contain", "Your entry was saved");
-    cy.get("input#distance")
-      .clear()
-      .type("1500");
+    cy.get("input#distance").clear().type("1500");
     cy.get("#save-result").click();
     cy.get("#response-message").should("contain", "Your entry was saved");
   });
