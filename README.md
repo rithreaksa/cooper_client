@@ -2,16 +2,20 @@
 
 ## Getting Started 
 
-To get started you need not only the clone this Repo but the Cooper test API, witch can be found [here](https://github.com/ViktorHek/cooper_test.git)
-when you have both the frontend and the backend you need to start them both. Without the backend you won't be able to store your information or create/authenticate your account. and without the frontend you won't be able to see the webpage where you can navigate the site easy, like creating an account, typ in your data and present it.
+To get started you need to not only clone this Repo but also the Cooper test API, witch can be found [here](https://github.com/ViktorHek/cooper_test.git).
+When you have both the frontend and the backend you need to start them both. Without the backend you won't be able to store your information or create/authenticate your account and without the frontend you won't be able to see the webpage where you can navigate the site easily, like creating an account, type in your data and display it.
 
 ## Acknowledgement
 
-we got inspiration from the corse material (Emma)
+- We got inspiration of the design from the Craft Academy course material (Emma)
+- [Semantic-UI-React, event.target.value](https://github.com/Semantic-Org/Semantic-UI-React/issues/638)
+- [How to get the value from an event target js](https://stackoverflow.com/questions/38348258/how-to-get-the-value-from-an-event-target-in-js)
+- [Semantic UI React centred from in Segment](https://stackoverflow.com/questions/45111701/semantic-ui-react-center-form-in-segment)
+- 
 
-## dependency
+## Dependencies
 
-we recommend installing all software you see beneath. they are not only valuable for us in developing this web page but good for anyone who wants to do what we do.
+We recommend installing all software you see beneath. They are not only valuable for us in developing this web page but also good for anyone who wants to do what we do.
 
 ```
 * React
@@ -26,8 +30,8 @@ we recommend installing all software you see beneath. they are not only valuable
 * Semantic ui
 ```
 
-## future development
+## Future Development
 
-* add a "Remember Me" option so the user don't need to sign in every time they change or refrech page 
+* Add a "Remember Me" option so the user don't need to sign in every time they change or refresh page 
 * BMI calculator
-* The ability to send the performance data in, for example, an Email.
+* The ability to send the performance data to, for example, an Email.
